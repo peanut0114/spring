@@ -10,6 +10,6 @@
 	</settings>
 	<typeAliases>
 		<!-- com.yedam.java.EmpVO로 쓰던걸 EmpVO만 써도 인식 되도록 설정 -->
-		<package name="com.yedam.java"/>
+		<package name="com.yedam.java" />
 	</typeAliases>
 </configuration>

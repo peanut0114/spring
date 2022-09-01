@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.yedam.java.emp.mapper.EmpMapper;
+import com.yedam.java.emp.service.EmpVO;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/root-context.xml")
 public class EmpMapperClient {
@@ -21,7 +24,7 @@ public class EmpMapperClient {
 		vo.setEmployeeId("100");
 		EmpVO findVO = empMapper.getEmp(vo);
 		
-		System.out.println(findVO.getLastName()+findVO.salary);
+		System.out.println(findVO.getLastName()+findVO.getSalary());
 		assertEquals(findVO.getLastName(),"King");	//예상값과 일치하는지 확인
 		
 		
