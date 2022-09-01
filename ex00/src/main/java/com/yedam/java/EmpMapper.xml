@@ -5,7 +5,7 @@
 	<!-- id:메소드이름, parameterType:반환타입, resultType:반환됐을때 타입 -->
 	<!-- 필드명을 기준으로 값을 가져올 때는 #{필드명} -->
 	<select id="getEmp" parameterType="com.yedam.java.EmpVO" resultType="com.yedam.java.EmpVO">
-		SELECT 	employee_id,
+		SELECT 	employee_id,	<!-- employeeId -->
 				first_name,
 				last_name,
 				email,
@@ -13,7 +13,7 @@
 				job_id,
 				salary 
 		FROM 	employees
-		WHERE 	employee_id = #{employee_id}
+		WHERE 	employee_id = #{employeeId}
 	</select>
 	<select id="getEmp2" parameterType="com.yedam.java.EmpVO" resultType="com.yedam.java.EmpVO">
 		SELECT 	employee_id,
@@ -24,6 +24,6 @@
 				job_id,
 				salary*1.5 as salary 
 		FROM 	employees
-		WHERE 	employee_id = #{employee_id}
+		WHERE 	employee_id = #{employeeId}
 	</select>
 </mapper>

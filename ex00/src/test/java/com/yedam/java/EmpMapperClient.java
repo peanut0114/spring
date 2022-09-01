@@ -18,15 +18,15 @@ public class EmpMapperClient {
 	@Test
 	public void getEmp() {
 		EmpVO vo = new EmpVO();
-		vo.setEmployee_id("100");
+		vo.setEmployeeId("100");
 		EmpVO findVO = empMapper.getEmp(vo);
 		
-		System.out.println(findVO.getLast_name()+findVO.salary);
-		assertEquals(findVO.getLast_name(),"King");	//예상값과 일치하는지 확인
+		System.out.println(findVO.getLastName()+findVO.salary);
+		assertEquals(findVO.getLastName(),"King");	//예상값과 일치하는지 확인
 		
 		
 		EmpVO findVO2 = empMapper.getEmp2(vo);
-		System.out.println(findVO2.getLast_name()+findVO2.getSalary());
+		System.out.println(findVO2.getLastName()+findVO2.getSalary());
 		
 	}
 }
