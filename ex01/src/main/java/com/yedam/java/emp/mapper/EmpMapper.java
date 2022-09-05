@@ -19,4 +19,6 @@ public interface EmpMapper {
 	//수정 : 사원정보를 넘겨받아서 이름과 성, 이메일을 수정할 수 있는 메소드
 	public int updateEmp(EmpVO empVO);
 	
+	//삭제
+	public int deleteEmpInfo(int employeeId);
 }

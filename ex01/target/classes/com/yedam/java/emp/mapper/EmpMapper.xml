@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yedam.java.emp.mapper.EmpMapper">
 	<select id="getEmpList" resultType="EmpVO">
-		Select * from employees
+		Select * from employees order by 1
 <!-- 		<where>
 			<if test="departmentId" != null>
 				department_id = #{departmentId} AND
@@ -14,15 +14,9 @@
 			job_id=#{jobId}
 		</where> -->
 	</select>
+	
 	<select id="getEmp" parameterType="EmpVO" resultType="EmpVO">
-		SELECT  employee_id, 
-				first_name, 
-				last_name,
-				<if test="!employeeId.equals('100')">
-					email, 
-				</if>
-				job_id, 
-				salary
+		SELECT *
 		FROM 	employees
 		WHERE 	employee_id = #{employeeId}
 	</select>
@@ -67,4 +61,8 @@
 		WHERE 	employee_id = #{employeeId}
 	</update>
 	
+	<delete id="deleteEmpInfo">
+		DELETE FROM employees
+		WHERE employee_id = ${employeeId}
+	</delete>
 </mapper>
