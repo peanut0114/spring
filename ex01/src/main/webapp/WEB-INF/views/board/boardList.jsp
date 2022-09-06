@@ -7,8 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+table { 
+	text-align:center}
+thead {
+	background : gold;
+}
+</style>
 </head>
 <body>
+<button onclick="location.href='insert'">글쓰기</button>
 	<table>
 		<thead>
 			<tr>
@@ -20,13 +28,20 @@
 		</thead>
 		<tbody>
 			<c:forEach var="board" items="${boardList }">
-				<tr>
+				<tr onclick="location.href='info?bno=${board.bno }'">
 					<td>${board.bno }</td>
 					<td>${board.title }</td>
 					<td>${board.writer }</td>
 					<td><fmt:formatDate value="${board.regdate}" pattern="yyyy/MM/dd"/> </td>
+					<td><button onclick="deleteBtn(${board.bno},event)">삭제</button></td>
 			</c:forEach>
 		</tbody>
 	</table>
 </body>
+<script>
+function deleteBtn(bno,event){
+	event.stopPropagation();
+	location.href='delete/'+bno;
+}
+</script>
 </html>
