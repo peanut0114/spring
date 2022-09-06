@@ -12,6 +12,7 @@
 		<typeAlias type="com.yedam.java.emp.mapper.EmpMapper" alias="EmpMapper"/>
 		<!-- 패키지 별칭 붙이기 : 컨테이너에 등록된 bean 검색 -->
 		<package name="com.yedam.java.emp.service" />
+		<package name="com.yedam.java.board.service"/>
 	</typeAliases>
 	<typeHandlers>
 		<!-- java.sql.Timestamp를 java.util.Date 형으로 변환 -->

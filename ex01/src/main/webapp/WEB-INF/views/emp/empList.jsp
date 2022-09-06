@@ -8,15 +8,16 @@
 <meta charset="UTF-8">
 <title>전체조회</title>
 <style>
-	table, tr, th, td{
-	border : 1px solid lightgray;
-	border-collapse : collapse;
-   	padding : 5px;
-	}
+table, tr, th, td {
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+	padding: 5px;
+}
 </style>
 </head>
 <body>
 	<h1>Emp Table</h1>
+	<button onclick="location.href='insertFrom'">추가</button>
 	<table>
 		<thead>
 			<tr>
@@ -32,7 +33,7 @@
 		</thead>
 
 		<c:forEach var="emp" items="${ empList }">
-			<div >
+			<div>
 				<tr onclick="location.href='getInfo?employeeId=${emp.employeeId}'">
 					<td>${emp.employeeId }</td>
 					<td>${emp.firstName }</td>
@@ -41,12 +42,13 @@
 					<td>${emp.hireDate }</td>
 					<td>${emp.jobId }</td>
 					<td>${emp.salary }</td>
-					<td><button type="button" onclick="deleteInfo(${emp.employeeId},event)">삭제</button> </td>
+					<td><button type="button"
+							onclick="deleteInfo(${emp.employeeId},event)">삭제</button></td>
 				</tr>
 			</div>
 		</c:forEach>
 	</table>
-		<button onclick="location.href='insertFrom'">추가</button>
+
 </body>
 <script>
 function deleteInfo(id,event){	//매개변수로 event를 넣어야 페이지 변환이 일어나지 않는다..?

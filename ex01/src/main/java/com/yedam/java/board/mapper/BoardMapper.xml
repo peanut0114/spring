@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.java.board.mapper.BoardMapper">
+	<!-- 입력될 게시글 번호를 조회 -->
+	<select id="getBoardNo" resultType="BoardVO">
+		SELECT NVL(MAX(bno),0)+1 as bno FROM board
+	</select>
+
+	<!-- 전체조회 -->
+	<select id="getBoardList" resultType="BoardVO">
+		SELECT * FROM board ORDER
+		BY bno
+	</select>
+	<!-- 단건조회 -->
+	<select id="getBoardInfo" parameterType="BoardVO"
+		resultType="BoardVO">
+		SELECT bno,
+		title,
+		contents,
+		writer,
+		regdate,
+		updatedate,
+		image
+		FROM board
+		<where>
+			<if test="writer!=null and !writer.equals('')">
+				writer = #{writer} AND
+			</if>
+			<if test="bno > 0">
+				bno = #{bno}
+			</if>
+		</where>
+	</select>
+	<!-- 등록 -->
+	<insert id="insertBoard" parameterType="BoardVO">
+		<!-- <selectKey keyProperty="bno" resultType="Integer" order="BEFORE"> 
+			SELECT NVL(MAX(bno),0)+1 FROM board </selectKey> -->
+		<!-- 다중컬럼 값을 가져오는 경우 <selectKey keyColumn="employee_id, first_name" keyProperty="employeeId, 
+			firstName" resultType="hashmap" order="BEFORE" SELECT employee_id, first_name 
+			FROM employee WHERE employee_id = #{employeeId} </selectKey> -->
+		INSERT INTO board (
+		bno
+		,title
+		,contents
+		,writer
+		<if test="regdate !=null">
+			,regdate
+		</if>
+		<if test="updatedate !=null">
+			,updatedate
+		</if>
+		<if test="image !=null">
+			,image
+		</if>
+		)
+		VALUES (
+		#{bno}
+		,#{title}
+		,#{contents}
+		,#{writer}
+		<if test="regdate !=null">
+			,#{regdate}
+		</if>
+		<if test="updatedate !=null">
+			,#{updatedate}
+		</if>
+		<if test="image !=null">
+			,#{image}
+		</if>
+		)
+	</insert>
+	<!-- 수정 -->
+	<update id="updateBoard" parameterType="BoardVO">
+		UPDATE board
+		<set>
+			<if test="title != null and !title.equals('')">
+				title = #{title},
+			</if>
+			<if test="contents != null and !contents.equals('')">
+				contents = #{contents},
+			</if>
+			<if test="image != null and !image.equals('')">
+				image = #{image},
+			</if>
+			<!-- if문에서 else가 불가능하므로 상반된 조건 두개를 각각의 if문으로 만든다 -->
+			<if test="updatedate != null">
+				updatedate = #{updatedate}
+			</if>
+			<if test="updatedate == null">
+				updatedate = sysdate
+			</if>
+		</set>
+		WHERE bno = #{bno}
+	</update>
+	<!-- -->
+	<delete id="deleteBoard" parameterType="Integer">
+		DELETE FROM board
+		WHERE bno = #{boardNo}
+	</delete>
+</mapper>

@@ -48,14 +48,15 @@
 				email = #{email} -->
 		<!-- 공백이 들어올 경우를 if문을 통해 걸러낼 수 있다 (test앞엔 #{}X) -->
 		<set>
+			employee_id = #{employeeId}
 			<if test="firstName != null">
-				first_name = #{firstName},
+				first_name = #{firstName}
 			</if>
 			<if test="lastName != null">
-				last_name = #{lastName},
+				,last_name = #{lastName}
 			</if>
 			<if test="email != null">
-				email = #{email}
+				,email = #{email}
 			</if>
 		</set>
 		WHERE 	employee_id = #{employeeId}

@@ -1,4 +1,4 @@
-package com.yedam.java.user.web;
+package com.yedam.java.emp.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,7 +50,7 @@ public class EmpController {
 		return "emp/empInsert";
 	}
 	
-	@GetMapping("/insertInfo")
+	@PostMapping("/insertInfo")	//빈페이지가 아닌이상 GetMapping을 잘 안 쓴다
 	public String insertEmpInfo(EmpVO empVO) {
 		empService.insertEmp(empVO);
 		return "redirect:/emp/allList";
