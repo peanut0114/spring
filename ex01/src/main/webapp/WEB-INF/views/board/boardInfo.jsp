@@ -8,9 +8,6 @@
 <meta charset="EUC-KR">
 <title>게시글 페이지</title>
 </head>
-<style>
-table{width:50%;marging:0 auto;}
-</style>
 <body>
 	<table>
 		<tr>
@@ -31,7 +28,10 @@ table{width:50%;marging:0 auto;}
 		</tr>
 		<tr>
 			<th>첨부파일</th>
+			<!-- <img src='/resources/images/${board.image}'> 이렇게 적으면 내부적으로 찾아가질 못한다 (html로 인식) -->
+			<!-- http를 이용한 외부 소스인지, /가 나타내는 루트가 어느 곳인지를 알지 못한다.. 아래 두가지 방법이 가능 -->
 			<td><img src="<c:url value='/resources/images/${board.image}'/>" style="width:50%" alt="이미지" /></td>
+			<td><img src="${pageContext.request.contextPath}/resources/images/${board.image}" style="width:50%" alt="이미지" /></td>
 		</tr>
 		<tr>
 			<th>작성일자</th>

@@ -16,7 +16,6 @@ thead {
 </style>
 </head>
 <body>
-<button onclick="location.href='insert'">글쓰기</button>
 	<table>
 		<thead>
 			<tr>
