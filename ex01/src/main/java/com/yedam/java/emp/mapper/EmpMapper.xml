@@ -48,7 +48,6 @@
 				email = #{email} -->
 		<!-- 공백이 들어올 경우를 if문을 통해 걸러낼 수 있다 (test앞엔 #{}X) -->
 		<set>
-			employee_id = #{employeeId}
 			<if test="firstName != null">
 				first_name = #{firstName}
 			</if>
