@@ -9,7 +9,7 @@ public interface TodoService {
 	//신규글 번호 
 	public int getTodoNO();
 	//전체조회
-	public List<TodoVO> getTodoList();
+	public List<TodoVO> getTodoList(TodoVO todoVO);
 	//단건조회
 	public TodoVO getTodoInfo(TodoVO todoVO);
 	//등록

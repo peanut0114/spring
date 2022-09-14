@@ -24,28 +24,26 @@ public class TodoController {
 	TodoService service;
 	
 	//전체출력
-	@GetMapping("/list")
-	public List<TodoVO> getTodoList() {
-		return service.getTodoList();	
+	@GetMapping("/todo")
+	public List<TodoVO> getTodoList(TodoVO todoVO) {
+		return service.getTodoList(todoVO);	
 	}
 	
 	//등록
-	@PostMapping("/list")
-	public TodoVO todoInsert(@RequestBody TodoVO todoVO) {
-		service.insertTodo(todoVO);
-		return todoVO;
+	@PostMapping("/todo")
+	public int todoInsert(TodoVO todoVO) {
+		return service.insertTodo(todoVO);
+		 
 	}
 	
 	//수정
-	@PutMapping("/list/{no}")
-	public TodoVO todoUpdate(@PathVariable int no, @RequestBody TodoVO todoVO) {
-		todoVO.setNo(no);
-		service.updateTodo(todoVO);
-		return todoVO;
+	@PutMapping("/todo")
+	public int todoUpdate(TodoVO todoVO) {
+		return service.updateTodo(todoVO);
 	}
 	
 	//삭제
-	@DeleteMapping("/list/{no}")
+	@DeleteMapping("/todo/{no}")
 	public TodoVO todoDelete(@PathVariable int no) {
 		TodoVO todoVO = new TodoVO();
 		todoVO.setNo(no);

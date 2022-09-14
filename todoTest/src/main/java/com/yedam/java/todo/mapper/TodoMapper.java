@@ -9,7 +9,7 @@ public interface TodoMapper {
 	//입력할 번호 조회(max+1)
 	public TodoVO getTodoNo();
 	//전체조회
-	public List<TodoVO> getTodoList();
+	public List<TodoVO> getTodoList(TodoVO todoVO);
 	//단건조회
 	public TodoVO getTodoInfo(TodoVO todoVO);
 	//등록

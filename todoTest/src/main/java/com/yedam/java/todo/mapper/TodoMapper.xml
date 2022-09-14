@@ -9,7 +9,7 @@
 
 	<!-- 전체조회 -->
 	<select id="getTodoList" resultType="TodoVO">
-		SELECT * FROM todo ORDER BY no
+		SELECT * FROM todo WHERE id = ${id} ORDER BY no
 	</select>
 
 	<!-- 단건조회 -->

@@ -1,6 +1,5 @@
-package com.yedam.java.emp.web;
+package com.yedam.java.book.web;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,15 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yedam.java.book.service.BookService;
 import com.yedam.java.book.service.BookVO;
-import com.yedam.java.emp.service.EmpReqVO;
-import com.yedam.java.emp.service.EmpVO;
 
 @Controller
 @RequestMapping("/book")
