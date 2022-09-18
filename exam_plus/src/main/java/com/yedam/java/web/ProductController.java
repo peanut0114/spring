@@ -33,8 +33,9 @@ public class ProductController {
 
 	// 등록페이지 - DB
 	@PostMapping("/insert")
-	public String productInsert(ProductVo productVo	) {
+	public String productInsert(ProductVo productVo,Model model) {
 		service.insertProduct(productVo);
+		model.addAttribute("productList", service.getAllProduct());
 		return "product/list";
 	}
 }

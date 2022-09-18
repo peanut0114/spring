@@ -51,7 +51,7 @@ td{
 			</tr>
 		</table>
 		<button type="button" onclick="formOption()">등록</button>
-		<button type="button" onclick="location.href=list">조회</button>
+		<button type="button" onclick="location.href='${pageContext.request.contextPath}/product/list'">조회</button>
 	</form>
 </body>
 <script>

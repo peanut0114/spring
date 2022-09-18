@@ -13,18 +13,30 @@
 					product_id,
 					product_name,
 					product_price,
-					product_info,
+					<if test="productInfo != null">
+						product_info,
+					</if>
 					product_date,
-					company,
-					manager_id
+					<if test="company != null">
+						company,
+					</if>
+					<if test="managerId != null">
+						manager_id
+					</if>
 					)
-		VALUES (${productId},
-				'${productName}',
-				${productPrice},
-				'${productInfo}',
-				sysdate,
-				'${company}',
-				'${managerId}'
+		VALUES (${productId}
+				,'${productName}'
+				,${productPrice}
+				<if test="productInfo != null">
+					,'${productInfo}'
+				</if>
+				,sysdate
+				<if test="company != null">
+					,'${company}'
+				</if>
+				<if test="managerId != null">
+					,'${managerId}'
+				</if>
 				)
 	</insert>
 	
